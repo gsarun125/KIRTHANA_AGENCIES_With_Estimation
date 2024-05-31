@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/buttoncancel"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="8dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/riple_effect_linear"
+        android:gravity="center"
+        android:textColor="@color/black"
+
+        android:text="Cancel"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/buttonok"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="8dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/riple_effect_linear"
+        android:textColor="@color/black"
+
+        android:gravity="center"
+        android:text="OK"
+        android:textSize="20sp" />
+</LinearLayout>

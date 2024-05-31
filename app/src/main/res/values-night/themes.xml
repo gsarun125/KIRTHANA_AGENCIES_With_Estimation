@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BillingSystem" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/tirtowritterregular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:windowBackground">@drawable/dark_background</item>
+    </style>
+
+
+    <style name="MenuItemTextAppearanceDark" parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

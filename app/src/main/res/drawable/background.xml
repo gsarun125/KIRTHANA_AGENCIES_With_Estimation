@@ -1,0 +1,8 @@
+<!-- res/drawable/background_multicolor.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#856FB3"
+        android:centerColor="#D8BFD8"
+        android:endColor="#FFB6C1"
+        android:angle="45" />
+</shape>

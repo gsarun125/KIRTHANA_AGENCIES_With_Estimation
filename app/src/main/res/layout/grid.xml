@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/grid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:maxHeight="300dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/product_id"
+            android:maxLines="4"
+            android:padding="6dp"
+            android:textColor="@color/black"
+
+            android:text="@string/product_id"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productid"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+
+            android:maxLines="4"
+            android:padding="6dp"
+            android:text="@string/printer_type"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productname"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+
+            android:textColor="@color/black"
+
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+
+            android:maxLines="4"
+            android:padding="6dp"
+            android:text="@string/quantity"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/t4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quantity"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/black"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/unit_cost"
+            android:maxLines="4"
+            android:padding="6dp"
+            android:text="@string/unit_cost"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/productid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/product_id"
+            android:maxLines="4"
+            android:padding="6dp"
+            android:singleLine="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/productname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productid"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:hint="@string/product_name"
+            android:textColor="@color/black"
+
+            android:maxLines="4"
+            android:padding="6dp"
+            android:singleLine="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productname"
+
+            android:layout_alignParentStart="true"
+            android:textColor="@color/black"
+
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:hint="@string/quantity"
+            android:maxLines="4"
+            android:padding="6dp"
+            android:singleLine="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quantity"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            android:hint="@string/unit_cost"
+            android:maxLines="4"
+            android:padding="6dp"
+            android:singleLine="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/noitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp"
+            android:textColor="@color/black"
+
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="69dp"
+            android:text="@string/no_items_to_display"
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/GST"
+        android:title="Add GST/IGST"
+        android:icon="@drawable/baseline_attach_money_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item android:id="@+id/Export"
+        android:title="@string/export_invoice"
+        android:icon="@drawable/baseline_ios_share_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item android:id="@+id/Import"
+        android:title="@string/import_invoice"
+        android:icon="@drawable/baseline_import_export_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/Maintenance"
+        android:title="Developer Concern"
+        android:icon="@drawable/baseline_build_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/AppTheme"
+        android:title="Theme"
+        android:icon="@drawable/icons_about"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/menuabout"
+        android:title="About"
+        android:icon="@drawable/icons_about"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/Logout"
+        android:title="@string/logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+
+</menu>

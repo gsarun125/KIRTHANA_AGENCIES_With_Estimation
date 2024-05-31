@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BillingSystem" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/tirtowritterregular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
+    <style name="MenuItemTextAppearance"  parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="genrate" parent="Base.Theme.BillingSystem" >
+        <item name="android:fontFamily">@font/tirtowritterregular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#E2800080</item>
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+</resources>

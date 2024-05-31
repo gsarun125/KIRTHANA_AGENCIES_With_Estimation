@@ -1,0 +1,104 @@
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.ka.billingsystem'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ka.billingsystem"
+        minSdk 24
+        targetSdk 34
+        versionCode 3
+        versionName "3.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildTypes {
+        release {
+            buildConfigField("int", "LOG_MAX_LINES", "5000")
+            buildConfigField("int", "LOG_DELETE_LINES", "2000")
+
+            buildConfigField("String", "TIME_UNIT", "\"DAYS\"")
+            buildConfigField("String", "PASWORD_CONERN", "\"9443528960\"")
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        debug {
+            buildConfigField("int", "LOG_MAX_LINES", "1000")
+            buildConfigField("int", "LOG_DELETE_LINES", "500")
+            buildConfigField("String", "PASWORD_CONERN", "\"12345678\"")
+            buildConfigField("String", "TIME_UNIT", "\"MINUTES\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+
+        buildConfig true
+        viewBinding true
+    }
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            variant.outputs.all {
+                outputFileName = "KirthanaAgencies_release.apk"
+            }
+        } else if (variant.buildType.name == "debug") {
+            variant.outputs.all {
+                outputFileName = "KirthanaAgencies_debug.apk"
+            }
+        }
+    }
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/ASL2.0")
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+    implementation "androidx.preference:preference-ktx:1.2.1"
+    implementation("com.google.apis:google-api-services-drive:v3-rev136-1.25.0")
+    implementation("com.google.api-client:google-api-client-android:2.2.0")
+    implementation("com.google.http-client:google-http-client-gson:1.26.0")
+    implementation ("com.google.http-client:google-http-client-android:1.39.2")
+
+
+    implementation 'androidx.work:work-runtime:2.9.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.itextpdf:itextpdf:5.5.13.3'
+    implementation 'com.github.afreakyelf:Pdf-Viewer:v2.0.4'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'org.apache.commons:commons-compress:1.21'
+    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'androidx.databinding:databinding-runtime:8.2.0'
+    implementation 'com.kyanogen.signatureview:signature-view:1.2'
+    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

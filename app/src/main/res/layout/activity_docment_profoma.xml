@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".proforma.activities.ProfomaDocumentViewActivity">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+
+        <ImageButton
+            android:id="@+id/Dcamera"
+
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+
+            android:src="@drawable/ripple_effect_camera"
+            android:contentDescription="Click here to capture an image for the classic invoice"
+            android:text="classic invoice" />
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/share1"
+            android:src="@drawable/ripple_effect_delete" />
+
+        <ImageButton
+            android:id="@+id/editPdf"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/ChangePdf"
+            android:src="@drawable/ripple_efect"
+            android:text="classic invoice" />
+
+        <ImageButton
+            android:id="@+id/ChangePdf"
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/Undo1"
+            android:src="@drawable/ripple_effect"
+            android:text="classic invoice" />
+
+        <ImageButton
+            android:id="@+id/Undo1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/delete"
+            android:src="@drawable/ripple_effect_undo" />
+
+        <ImageButton
+            android:id="@+id/share1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="-80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+
+            android:src="@drawable/ripple_effect_share" />
+
+        <com.rajat.pdfviewer.PdfRendererView
+            android:id="@+id/pdfView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            app:pdfView_divider="@drawable/pdf_viewer_divider"
+            app:pdfView_showDivider="false" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RelativeLayout2"
+        android:layout_marginTop="-50dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/backbutton_document"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/riple_effect_linear"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ripple_effect_backarrow"
+                    android:contentDescription="Back Arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <!-- Add other contents here -->
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

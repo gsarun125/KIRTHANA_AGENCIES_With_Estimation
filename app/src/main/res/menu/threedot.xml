@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/EditSignature2"
+        android:title="@string/edit_signature"
+        android:icon="@drawable/baseline_edit_sig"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/menuEstimation"
+        android:title="@string/estimation"
+        android:icon="@drawable/estimation"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+    <item
+        android:id="@+id/Logout"
+        android:title="@string/logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:titleTextAppearance="@style/MenuItemTextAppearance"
+        />
+</menu>
