@@ -136,8 +136,15 @@ public class ProfomaRecentInvoiceActivity extends AppCompatActivity implements O
 
                     File file;
                     if (path == null) {
-                        file = new File("/storage/emulated/0/DATA/Profoma_Invoice" + billNo + ".pdf");
-                    } else {
+                        String fileName = "Profoma_Invoice" +billNo   + ".pdf";
+
+                        File dir = new File(this.getFilesDir(), "DATA");
+                        if (!dir.exists()) {
+                            dir.mkdir();
+                        }
+                        file = new File(dir, fileName);
+                        db.proformafilePath(Integer.parseInt(billNo),file.getAbsolutePath());
+                     } else {
                         file = new File(path);
                     }
 

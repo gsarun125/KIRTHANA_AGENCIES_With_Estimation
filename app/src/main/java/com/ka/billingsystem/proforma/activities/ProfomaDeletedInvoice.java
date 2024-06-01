@@ -124,20 +124,28 @@ public class ProfomaDeletedInvoice extends AppCompatActivity implements OnpdfDel
         try {
             Cursor c1;
 
-            c1 = db.getValue("SELECT * FROM (SELECT * FROM Deleted WHERE sales_user='" + sharedPrefUser + "' GROUP BY cus_id ) AS sorted JOIN customer ON sorted.cus_id = customer.cus_id ORDER BY sorted.time DESC");
+            c1 = db.getValue("SELECT * FROM (SELECT * FROM proforma_Deleted WHERE proforma_sales_user='" + sharedPrefUser + "' GROUP BY proforma_cus_id ) AS sorted JOIN proforma_customer ON sorted.proforma_cus_id = proforma_customer.proforma_cus_id ORDER BY sorted.proforma_time DESC");
             if (c1.moveToFirst()) {
                 do {
-                    @SuppressLint("Range") String path = c1.getString(c1.getColumnIndex("file_Path"));
-                    @SuppressLint("Range") String billNo = c1.getString(c1.getColumnIndex("Bill_No"));
-                    @SuppressLint("Range") String tamount = c1.getString(c1.getColumnIndex("tamount"));
-                    @SuppressLint("Range") Long time = c1.getLong(c1.getColumnIndex("time"));
-                    @SuppressLint("Range") String salesUser = c1.getString(c1.getColumnIndex("sales_user"));
-                    @SuppressLint("Range") String cusName = c1.getString(c1.getColumnIndex("cus_name"));
-                    @SuppressLint("Range") String cusPhone = c1.getString(c1.getColumnIndex("cus_Phone"));
-                    @SuppressLint("Range") String printerImg = c1.getString(c1.getColumnIndex("printer_img"));
+                    @SuppressLint("Range") String path = c1.getString(c1.getColumnIndex("proforma_file_Path"));
+                    @SuppressLint("Range") String billNo = c1.getString(c1.getColumnIndex("proforma_Bill_No"));
+                    @SuppressLint("Range") String tamount = c1.getString(c1.getColumnIndex("proforma_tamount"));
+                    @SuppressLint("Range") Long time = c1.getLong(c1.getColumnIndex("proforma_time"));
+                    @SuppressLint("Range") String salesUser = c1.getString(c1.getColumnIndex("proforma_sales_user"));
+                    @SuppressLint("Range") String cusName = c1.getString(c1.getColumnIndex("proforma_cus_name"));
+                    @SuppressLint("Range") String cusPhone = c1.getString(c1.getColumnIndex("proforma_cus_Phone"));
+                    @SuppressLint("Range") String printerImg = c1.getString(c1.getColumnIndex("proforma_printer_img"));
                     File file;
                     if (path == null) {
-                        file = new File("/storage/emulated/0/DATA/Profoma_Invoice" + billNo + ".pdf");
+                        String fileName = "Profoma_Invoice" +billNo  + ".pdf";
+
+                        File dir = new File(this.getFilesDir(), "DATA");
+                        if (!dir.exists()) {
+                            dir.mkdir();
+                        }
+                        file = new File(dir, fileName);
+                        db.proformafilePath(Integer.parseInt(billNo),file.getAbsolutePath());
+
                     } else {
                         file = new File(path);
                     }
@@ -154,6 +162,7 @@ public class ProfomaDeletedInvoice extends AppCompatActivity implements OnpdfDel
                     userName.add("Name: " + cusName);
                     Phoneno.add("Mobile no: " + cusPhone);
                     pdfList.add(file);
+                    System.out.println(cusName+"321");
                 } while (c1.moveToNext());
             }
         } catch (Exception e) {
@@ -215,7 +224,7 @@ public class ProfomaDeletedInvoice extends AppCompatActivity implements OnpdfDel
             builder.setPositiveButton(R.string.yes, (DialogInterface.OnClickListener) (dialog, which) -> {
                 dialog.dismiss();
                 String a = "1";
-                Intent i = new Intent(this, DocumentViewActivity.class);
+                Intent i = new Intent(this, ProfomaDocumentViewActivity.class);
                 i.putExtra("billno", billNo);
                 i.putExtra("option", a);
                 i.putExtra("Filepath", file.getAbsolutePath());

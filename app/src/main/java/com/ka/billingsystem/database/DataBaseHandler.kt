@@ -413,6 +413,18 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(
             println("not added")
         }
     }
+    fun proformafilePath(Bill_No: Int, Path: String) {
+
+        val db = this.writableDatabase
+        val values = ContentValues()
+
+        values.put(PROFORMA_COL_FILE_PATH, Path)
+
+        val rowsAffected = db.update(PROFORMA_TABLENAME2, values, "proforma_Bill_No=?", arrayOf(Bill_No.toString()))
+
+        // Log the result
+
+    }
     fun printerImage(Bill_No: Int, image: String) {
 
         val db = this.writableDatabase
@@ -559,12 +571,33 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(
         val deleteDataQuery = "DELETE FROM " + TABLENAME5 + " WHERE " + COL_BILL_NO + " = " + billNo
         db.execSQL(deleteDataQuery)
     }
+    fun proformaundoMoveDataFromTable2ToTable5(billNo: String) {
+        val db = this.writableDatabase
+        val deleteDataQuery1 =
+            "DELETE FROM " + PROFORMA_TABLENAME2 + " WHERE " + PROFORMA_COL_BILL_NO + " = " + billNo
+        db.execSQL(deleteDataQuery1)
 
+        // Move data back to TABLENAME2
+        val undoMoveDataQuery =
+            "INSERT INTO " + PROFORMA_TABLENAME2 + " SELECT * FROM " + PROFORMA_TABLENAME5 + " WHERE " + PROFORMA_COL_BILL_NO + " = " + billNo
+        db.execSQL(undoMoveDataQuery)
+
+        // Delete data from TABLENAME5
+        val deleteDataQuery = "DELETE FROM " + PROFORMA_TABLENAME5 + " WHERE " + PROFORMA_COL_BILL_NO + " = " + billNo
+        db.execSQL(deleteDataQuery)
+    }
 
     fun permanentDelete(billNo: String) {
         val db = this.writableDatabase
         val tableName = "Deleted"  // Replace with your actual table name
         val whereClause = "$COL_BILL_NO = ?"
+        val whereArgs = arrayOf(billNo)
+        db?.delete(tableName, whereClause, whereArgs)
+    }
+    fun proforma_permanentDelete(billNo: String) {
+        val db = this.writableDatabase
+        val tableName = "proforma_Deleted"  // Replace with your actual table name
+        val whereClause = "$PROFORMA_COL_BILL_NO = ?"
         val whereArgs = arrayOf(billNo)
         db?.delete(tableName, whereClause, whereArgs)
     }

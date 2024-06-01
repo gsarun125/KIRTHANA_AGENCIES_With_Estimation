@@ -398,7 +398,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } else if (option.equals("1")) {
-                Intent intent = new Intent(this, ProformaHistoryActivity.class);
+                Intent intent = new Intent(this, ProfomaDeletedInvoice.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -638,6 +638,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 dir.mkdir();
             }
             File file2 = new File(dir, fileName);
+            System.out.println(cusname+"1234");
             new ProfomaClassicPdfGenerationTask(ProfomaDocumentViewActivity.this, pdfView, count, Net_AMT, Integer.parseInt(billno), cusname, phoneno, mQty, mCost, mTotal, mProduct_name, SPIS_FIRST_TIME, SPIS_FIRST_logo, file2, IGST, CGST, SGST, time).execute();
         } catch (Exception e) {
             Logger.log("Crashed", "colourPDF");
@@ -690,7 +691,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 dialog.dismiss();
             });
             builder.setPositiveButton(R.string.yes, (DialogInterface.OnClickListener) (dialog, which) -> {
-                db.moveDataFromTable2ToTable5(mPbillno);
+                db.proformamoveDataFromTable2ToTable5(mPbillno);
                 if (option.equals("0")) {
                     Intent i = new Intent(ProfomaDocumentViewActivity.this, ProfomaRecentInvoiceActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -754,8 +755,8 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
             spannableYes.setSpan(new ForegroundColorSpan(Color.RED), 0, spannableYes.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             builder.setPositiveButton(spannableYes, (DialogInterface.OnClickListener) (dialog, which) -> {
-                db.permanentDelete(billno);
-                Intent i = new Intent(ProfomaDocumentViewActivity.this, DeletedInvoice.class);
+                db.proforma_permanentDelete(billno);
+                Intent i = new Intent(ProfomaDocumentViewActivity.this,ProfomaDeletedInvoice.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             });
@@ -797,7 +798,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 dialog.dismiss();
             });
             builder.setPositiveButton(R.string.yes, (DialogInterface.OnClickListener) (dialog, which) -> {
-                db.undoMoveDataFromTable2ToTable5(mPbillno);
+                db.proformaundoMoveDataFromTable2ToTable5(mPbillno);
                 Intent i = new Intent(ProfomaDocumentViewActivity.this, ProfomaDeletedInvoice.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);

@@ -332,8 +332,15 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
                     if (data1 != null) {
                         file = new File(data1);
                     } else {
-                        file = new File("/storage/emulated/0/DATA/Invoice" + data2 + ".pdf");
-                    }
+                        String fileName = "Profoma_Invoice" +data2 + ".pdf";
+
+                        File dir = new File(getApplicationContext().getFilesDir(), "DATA");
+                        if (!dir.exists()) {
+                            dir.mkdir();
+                        }
+                        file = new File(dir, fileName);
+                        db.proformafilePath(Integer.parseInt(data2),file.getAbsolutePath());
+                      }
                     if (file.exists()) {
                         reportPdfList.add(data1);
                     } else {
@@ -803,8 +810,14 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
 
                     File file;
                     if (path == null) {
-                        file = new File("/storage/emulated/0/DATA/Profoma_Invoice" + data1 + ".pdf");
-                    } else {
+                       String fileName = "Profoma_Invoice" +data1  + ".pdf";
+
+                        File dir = new File(this.getFilesDir(), "DATA");
+                        if (!dir.exists()) {
+                            dir.mkdir();
+                        }
+                        file = new File(dir, fileName);
+                       } else {
                         file = new File(path);
                     }
 
