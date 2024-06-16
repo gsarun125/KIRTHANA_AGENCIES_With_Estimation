@@ -227,7 +227,7 @@ public class DeletedInvoice extends AppCompatActivity implements OnpdfDelete {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(DeletedInvoice.this,positiveButton, negativeButton);
                 }
             });
             alertDialog.show();

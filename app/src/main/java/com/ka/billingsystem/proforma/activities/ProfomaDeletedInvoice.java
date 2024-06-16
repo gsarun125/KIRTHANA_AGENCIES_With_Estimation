@@ -154,7 +154,7 @@ public class ProfomaDeletedInvoice extends AppCompatActivity implements OnpdfDel
                     Date res = new Date(time);
                     image.add(printerImg);
                     tempBillNo.add(billNo);
-                    this.billNo.add("Bill No: " + billNo);
+                    this.billNo.add("Proforma No: " + billNo);
                     amount.add("Total Amount: " + tamount + " Rs.");
                     this.time.add("Time:" + formatter.format(res));
                     date.add("Generated Date : " + formatter1.format(res));
@@ -236,7 +236,7 @@ public class ProfomaDeletedInvoice extends AppCompatActivity implements OnpdfDel
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(ProfomaDeletedInvoice.this,positiveButton, negativeButton);
                 }
             });
             alertDialog.show();

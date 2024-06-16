@@ -321,13 +321,13 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
             if (sharedPrefUser.equals("admin")) {
                 c1 = db.getValue("SELECT * FROM (SELECT * FROM proforma_Transation GROUP BY proforma_cus_id ) AS sorted JOIN proforma_customer ON sorted.proforma_cus_id = customer.proforma_cus_id AND sorted.proforma_time BETWEEN '" + fromDate + "' AND '" + toDate + "' ORDER BY sorted.proforma_time ASC");
             } else {
-                c1 = db.getValue("SELECT * FROM (SELECT * FROM proforma_Transation WHERE proforma_sales_user='" + sharedPrefUser + "' GROUP BY proforma_cus_id ) AS sorted JOIN proforma_customer ON sorted.proforma_cus_id = customer.proforma_cus_id AND sorted.proforma_time BETWEEN '" + fromDate + "' AND '" + toDate + "' ORDER BY sorted.proforma_time ASC");
+                c1 = db.getValue("SELECT * FROM (SELECT * FROM proforma_Transation WHERE proforma_sales_user='" + sharedPrefUser + "' GROUP BY proforma_cus_id ) AS sorted JOIN proforma_customer ON sorted.proforma_cus_id = proforma_customer.proforma_cus_id AND sorted.proforma_time BETWEEN '" + fromDate + "' AND '" + toDate + "' ORDER BY sorted.proforma_time ASC");
             }
             totalTasks = c1.getCount() + 1;
             if (c1.moveToFirst()) {
                 do {
-                    @SuppressLint("Range") String data1 = c1.getString(c1.getColumnIndex("file_Path"));
-                    @SuppressLint("Range") String data2 = c1.getString(c1.getColumnIndex("Bill_No"));
+                    @SuppressLint("Range") String data1 = c1.getString(c1.getColumnIndex("proforma_file_Path"));
+                    @SuppressLint("Range") String data2 = c1.getString(c1.getColumnIndex("proforma_Bill_No"));
                     File file;
                     if (data1 != null) {
                         file = new File(data1);
@@ -394,7 +394,7 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
                             Net_AMT = Net_AMT + total;
                         }
 
-                        String fileName = "Invoice" + data2 + ".pdf";
+                        String fileName = "Profoma_Invoice" + data2 + ".pdf";
                         String SPIS_FIRST_logo = sharedpreferences.getString(SHARED_PREFS_Logo, null);
                         File dir = Filedir();
                         if (!dir.exists()) {
@@ -487,7 +487,7 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
             Logger.log("Started", "onPostExecute");
             if (waitForTasks()) {
                 try {
-                    String fileName = "Report_kirthana.pdf";
+                    String fileName = "Proforma_Report_kirthana.pdf";
                     File dir = new File(getCacheDir(), "Report");
 
                     if (!dir.exists()) {
@@ -830,7 +830,7 @@ public class ProformaHistoryActivity extends AppCompatActivity implements OnPdfF
                     Date res = new Date(data3);
                     tempbillno.add(data1);
 
-                    mPbillno.add("Bill No: " + data1);
+                    mPbillno.add("Proforma No: " + data1);
                     mPtamount.add("Total Amount: " + data2 + " Rs.");
                     mPtime.add("Time:" + formatter.format(res));
                     mPDate.add("Generated Date : " + formatter1.format(res));

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -312,7 +313,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                     positiveButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -478,7 +479,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                 }
 
             });
@@ -848,7 +849,8 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    positiveButton.setTextColor(ContextCompat.getColor(UserSelectionActivity.this, R.color.black));
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                 }
 
             });
@@ -946,9 +948,10 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                 }
             });
+
             // Set window animations for enter and exit
             alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
             alertDialog.show();
@@ -991,7 +994,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                     positiveButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -1114,7 +1117,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                         }
 
                     });
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                 }
             });
 
@@ -1174,7 +1177,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
                 }
 
             });
@@ -1254,7 +1257,7 @@ public class UserSelectionActivity extends BaseActivity implements SelectionList
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(UserSelectionActivity.this,positiveButton, negativeButton);
 
 
                     positiveButton.setOnClickListener(new View.OnClickListener() {

@@ -101,7 +101,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/ripple_effect_backarrow"
+                    android:src="@drawable/ripple_effect_backarrow"
                     android:contentDescription="Back Arrow" />
             </LinearLayout>
 

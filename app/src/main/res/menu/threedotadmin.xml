@@ -25,7 +25,7 @@
     <item
         android:id="@+id/AppTheme"
         android:title="Theme"
-        android:icon="@drawable/icons_about"
+        android:icon="@drawable/theme"
         android:titleTextAppearance="@style/MenuItemTextAppearance"
         />
     <item

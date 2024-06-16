@@ -150,7 +150,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                         public void onShow(DialogInterface dialog) {
                             Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                             Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                            setDialogStyle(positiveButton, negativeButton);
+                            setDialogStyle(ProfomaDocumentViewActivity.this,positiveButton, negativeButton);
                         }
                     });
                     alertDialog.show();
@@ -239,7 +239,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                             public void onShow(DialogInterface dialog) {
                                 Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                                 Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                                setDialogStyle(positiveButton, negativeButton);
+                                setDialogStyle(ProfomaDocumentViewActivity.this,positiveButton, negativeButton);
                             }
                         });
                         alertDialog.show();
@@ -555,7 +555,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 Net_AMT = Net_AMT + total;
 
             }
-            String fileName = "Invoice" + billno + ".pdf";
+            String fileName = "Profoma_Invoice" + billno + ".pdf";
             String SPIS_FIRST_logo = sharedpreferences.getString(SHARED_PREFS_Logo, null);
             File dir = new File(this.getFilesDir(), "DATA");
             if (!dir.exists()) {
@@ -709,7 +709,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(ProfomaDocumentViewActivity.this,positiveButton, negativeButton);
                 }
 
             });
@@ -767,7 +767,7 @@ public class ProfomaDocumentViewActivity extends AppCompatActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(ProfomaDocumentViewActivity.this,positiveButton, negativeButton);
                 }
 
             });

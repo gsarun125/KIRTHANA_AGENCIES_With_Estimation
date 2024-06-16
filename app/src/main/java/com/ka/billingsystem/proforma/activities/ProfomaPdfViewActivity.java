@@ -38,6 +38,7 @@ import com.google.gson.Gson;
 import com.ka.billingsystem.R;
 import com.ka.billingsystem.activities.SalesActivity;
 import com.ka.billingsystem.activities.UserHomePageActivity;
+import com.ka.billingsystem.activities.UserHomePageProformaAndSaleActivity;
 import com.ka.billingsystem.asynctask.ClassicPdfGenerationTask;
 import com.ka.billingsystem.asynctask.ColourPdfGenerationTask;
 import com.ka.billingsystem.crash.Logger;
@@ -186,7 +187,7 @@ public class ProfomaPdfViewActivity extends AppCompatActivity {
                         public void onShow(DialogInterface dialog) {
                             Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                             Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                            setDialogStyle(positiveButton, negativeButton);
+                            setDialogStyle(ProfomaPdfViewActivity.this,positiveButton, negativeButton);
                         }
                     });
                     alertDialog.show();
@@ -234,7 +235,7 @@ public class ProfomaPdfViewActivity extends AppCompatActivity {
                             public void onShow(DialogInterface dialog) {
                                 Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                                 Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                                setDialogStyle(positiveButton, negativeButton);
+                                setDialogStyle(ProfomaPdfViewActivity.this,positiveButton, negativeButton);
 
                             }
 
@@ -323,7 +324,7 @@ public class ProfomaPdfViewActivity extends AppCompatActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(ProfomaPdfViewActivity.this,positiveButton, negativeButton);
                 }
 
             });
@@ -408,7 +409,8 @@ public class ProfomaPdfViewActivity extends AppCompatActivity {
     public void onBackPressed() {
         Logger.log("Started", "onBackPressed");
         try {
-            Intent i = new Intent(ProfomaPdfViewActivity.this, ProformaUserHomePageActivity.class);
+            Intent i = new Intent(ProfomaPdfViewActivity.this, UserHomePageProformaAndSaleActivity.class);
+            i.putExtra("fragment_to_display", "ProformaUserHomeFragment");
             startActivity(i);
             finish();
         } catch (Exception e) {

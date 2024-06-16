@@ -101,9 +101,6 @@ class UserHomePageActivity : AppCompatActivity() {
                     if (ch == R.id.EditSignature2) {
                         val intent = Intent(this, EditSignature::class.java)
                         startActivity(intent)
-                    }else if(ch==R.id.menuEstimation){
-                        val intent = Intent(this, ProformaUserHomePageActivity::class.java)
-                        startActivity(intent)
                     }
                     else if (ch == R.id.Logout) {
                         logOut()
@@ -192,7 +189,7 @@ class UserHomePageActivity : AppCompatActivity() {
             alertDialog.setOnShowListener {
                 val positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                 val negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                SetDialogStyle.setDialogStyle(positiveButton, negativeButton)
+                SetDialogStyle.setDialogStyle(this,positiveButton, negativeButton)
             }
             alertDialog.show()
         } catch (e: java.lang.Exception) {
@@ -291,6 +288,7 @@ class UserHomePageActivity : AppCompatActivity() {
                 ).show()
             }
     }
+
     /**
      * Perform logout operation.
      */

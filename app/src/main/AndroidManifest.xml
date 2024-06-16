@@ -5,8 +5,6 @@
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -32,10 +30,19 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:enableOnBackInvokedCallback="true"
         android:theme="@style/Base.Theme.BillingSystem"
         tools:targetApi="31">
-        <activity android:name=".proforma.activities.ProfomaDocumentViewActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".activities.UserHomePageProformaAndSaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".proforma.activities.ProfomaSignature"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".proforma.activities.ProfomaDocumentViewActivity"
+            android:exported="false" />
         <activity
             android:name=".proforma.activities.ProformaSalesActivity"
             android:exported="false" />

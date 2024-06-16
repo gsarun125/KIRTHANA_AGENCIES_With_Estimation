@@ -56,12 +56,6 @@ class ProformaUserHomePageActivity : AppCompatActivity() {
             binding = ActivityUserHomePageProformaBinding.inflate(layoutInflater)
             setContentView(binding.root)
 
-            handler = Handler()
-
-            Lastdateset()
-            handler!!.postDelayed(runnableCode, 1000 * 60);
-
-
             startService(Intent(this, LogoutService::class.java))
 
             binding.btnlogout.setOnClickListener {
@@ -163,63 +157,11 @@ class ProformaUserHomePageActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        logOut()
+        val intent = Intent(this, UserHomePageActivity::class.java)
+        startActivity(intent)
+
     }
 
-    /**
-     * Set the last login date and time information.
-     */
-    private fun Lastdateset() {
-        Logger.log("Proforma Started", "Lastdateset")
-        try {
-            val c1: Cursor
-           var userName: String? =null
-            c1 = db.getValue("SELECT Last_Logout,user_name FROM user WHERE user_id ='" + SPuser + "'")!!
-            if (c1.moveToFirst()) {
-                @SuppressLint("Range") val data1: Long =
-                    c1.getLong(c1.getColumnIndex("Last_Logout"))
-
-                @SuppressLint("Range") val data2: String =
-                    c1.getString(c1.getColumnIndex("user_name"))
-                userName=data2
-                LastLogout = data1
-            }
-            if (LastLogout != 0L) {
-                val lastLogoutTimestamp = LastLogout!!
-
-                val lastLogoutDate = Date(lastLogoutTimestamp)
-
-                val currentTimeMillis = System.currentTimeMillis()
-
-                val timeDifference = currentTimeMillis - lastLogoutTimestamp
-
-                val relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
-                    lastLogoutTimestamp,
-                    currentTimeMillis,
-                    DateUtils.MINUTE_IN_MILLIS,
-                    DateUtils.FORMAT_ABBREV_RELATIVE
-                )
-
-                if (timeDifference > DateUtils.DAY_IN_MILLIS) {
-                    // Customize the date format based on your requirements
-                    val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
-                    val formattedDate = dateFormat.format(lastLogoutDate)
-
-                    // Set the formatted date and time to the TextView
-                    binding.LastLogout.text = "Last Login: $formattedDate"
-                } else {
-                    // Set the formatted relative time span to the TextView
-                    binding.LastLogout.text = "Last Login: $relativeTimeSpan"
-                }
-            } else {
-                binding.LastLogout.text = ""
-            }
-            binding.welometxt.text = "Hii!.. " +capitalizeEachWord(userName);
-        } catch (e: Exception) {
-            Logger.log("Proforma Crashed", "logOut")
-        }
-        Logger.log("Proforma Ended", "logOut")
-    }
 
     private fun capitalizeEachWord(input: String?): String? {
         val result = StringBuilder()
@@ -239,24 +181,5 @@ class ProformaUserHomePageActivity : AppCompatActivity() {
         }
         return result.toString()
     }
-    /**
-     * A Runnable object that runs a method periodically.
-     */
-    private val runnableCode: Runnable = object : Runnable {
-        override fun run() {
-            // Run the method periodically
-            Lastdateset()
 
-            // Schedule the method to run again after a delay
-            handler!!.postDelayed(
-                this, (1000 * 60).toLong()
-            ) // Run every 60 seconds (adjust as needed)
-        }
-    }
-
-    override fun onDestroy() {
-        // Remove the callback when the activity is destroyed to prevent memory leaks
-        handler!!.removeCallbacks(runnableCode)
-        super.onDestroy()
-    }
 }

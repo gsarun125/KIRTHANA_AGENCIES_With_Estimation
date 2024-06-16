@@ -111,6 +111,7 @@ public class ColourInvoice {
 
         System.out.println(CusName);
 
+        System.out.printf("CusName:"+CusName);
         String[] lines = CusName.split("\n");
 
         float yPosition = 300;

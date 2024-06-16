@@ -992,7 +992,7 @@ public class SalesActivity extends AppCompatActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(SalesActivity.this,positiveButton, negativeButton);
                 }
             });
             alertDialog.show();

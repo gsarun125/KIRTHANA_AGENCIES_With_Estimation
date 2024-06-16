@@ -128,7 +128,7 @@ public class ProformaSalesActivity extends AppCompatActivity {
             cursor.moveToFirst();
             int id = cursor.getInt(0);
             int Bill_id = id + 1;
-            edtbillno.setHint("Bill No:" + Bill_id);
+            edtbillno.setHint("Proforma No:" + Bill_id);
         }
 
         if (getIntent().hasExtra("id")) {
@@ -395,7 +395,7 @@ public class ProformaSalesActivity extends AppCompatActivity {
 
 
             // Add customer details to custom layout
-            View customerDetailsView = LayoutInflater.from(ProformaSalesActivity.this).inflate(R.layout.custom_info_gen, null);
+            View customerDetailsView = LayoutInflater.from(ProformaSalesActivity.this).inflate(R.layout.pofoma_custom_info_gen, null);
             customLayout.addView(customerDetailsView);
 
             TextView Customer_name = customerDetailsView.findViewById(R.id.txtCusname);
@@ -790,7 +790,7 @@ public class ProformaSalesActivity extends AppCompatActivity {
             finish();
         } else {
 
-            Intent intent = new Intent(ProformaSalesActivity.this, Signature.class);
+            Intent intent = new Intent(ProformaSalesActivity.this, ProfomaSignature.class);
             intent.putExtra("SalesData", jsonStringSalesData);
             startActivity(intent);
             finish();
@@ -975,7 +975,7 @@ public class ProformaSalesActivity extends AppCompatActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(ProformaSalesActivity.this,positiveButton, negativeButton);
                 }
             });
             alertDialog.show();

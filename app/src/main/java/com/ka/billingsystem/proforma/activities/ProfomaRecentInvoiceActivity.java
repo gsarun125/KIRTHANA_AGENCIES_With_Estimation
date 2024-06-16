@@ -155,7 +155,7 @@ public class ProfomaRecentInvoiceActivity extends AppCompatActivity implements O
                     Date res = new Date(time);
                     image.add(printerImg);
                     tempbillno.add(billNo);
-                    mPbillno.add("Bill No: " + billNo);
+                    mPbillno.add("Proforma No: " + billNo);
                     mPtamount.add("Total Amount: " + tamount + " Rs.");
                     mPtime.add("Time:" + formatter.format(res));
                     mPDate.add("Generated Date : " + formatter1.format(res));

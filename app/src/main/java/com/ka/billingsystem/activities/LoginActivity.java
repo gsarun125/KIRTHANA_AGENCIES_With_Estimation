@@ -5,8 +5,6 @@ import static com.ka.billingsystem.utils.SetDialogStyle.setDialogStyle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
@@ -65,7 +63,6 @@ import com.ka.billingsystem.services.MyBroadcastReceiver;
 import com.ka.billingsystem.R;
 import com.ka.billingsystem.database.DataBaseHandler;
 import com.ka.billingsystem.services.MaintenanceWorker;
-import com.ka.billingsystem.utils.Import;
 
 import java.io.File;
 import java.util.Calendar;
@@ -255,7 +252,7 @@ public class LoginActivity extends BaseActivity {
                         editor.putString(ADMIN_LOGIN, "false");
                         editor.apply();
                         Toast.makeText(LoginActivity.this, R.string.login_successfull, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), UserHomePageActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), UserHomePageProformaAndSaleActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -352,7 +349,7 @@ public class LoginActivity extends BaseActivity {
 
                         Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                         Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                        setDialogStyle(positiveButton, negativeButton);
+                        setDialogStyle(LoginActivity.this,positiveButton, negativeButton);
 
                         positiveButton.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -425,7 +422,7 @@ public class LoginActivity extends BaseActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(LoginActivity.this,positiveButton, negativeButton);
                 }
             });
             alertDialog.show();
@@ -476,7 +473,7 @@ public class LoginActivity extends BaseActivity {
                 public void onShow(DialogInterface dialog) {
                     Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
                     Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    setDialogStyle(positiveButton, negativeButton);
+                    setDialogStyle(LoginActivity.this,positiveButton, negativeButton);
                 }
 
             });

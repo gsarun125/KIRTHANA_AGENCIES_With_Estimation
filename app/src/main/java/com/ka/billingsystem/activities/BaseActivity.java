@@ -1,5 +1,6 @@
 package com.ka.billingsystem.activities;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,13 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class BaseActivity extends AppCompatActivity {
-
+    private static Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         applyDarkMode();
+        BaseActivity.context = getApplicationContext();
     }
-
+    public static Context getAppContext() {
+        return BaseActivity.context;
+    }
     private void applyDarkMode() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String selectedMode = sharedPreferences.getString("selected_mode", "system");

@@ -7,12 +7,6 @@
         android:titleTextAppearance="@style/MenuItemTextAppearance"
         />
     <item
-        android:id="@+id/menuEstimation"
-        android:title="@string/estimation"
-        android:icon="@drawable/estimation"
-        android:titleTextAppearance="@style/MenuItemTextAppearance"
-        />
-    <item
         android:id="@+id/Logout"
         android:title="@string/logout"
         android:icon="@drawable/baseline_logout_24"

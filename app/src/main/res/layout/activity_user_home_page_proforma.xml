@@ -71,35 +71,6 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="10dp">
-
-        <TextView
-
-            android:id="@+id/welometxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-
-            android:text="Hi arun!" />
-
-        <TextView
-
-            android:id="@+id/LastLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/welometxt"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:text="LastLogout" />
-
-    </RelativeLayout>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -136,7 +107,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/sale_proforma" />
+                    android:src="@drawable/receipt" />
 
                 <TextView
                     android:id="@+id/invoice"
@@ -147,7 +118,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:text="@string/invoice_sale"
+                    android:text="Proforma Sale"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -182,14 +153,14 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:src="@drawable/invoice_proforma_black" />
+                    android:src="@drawable/history" />
 
                 <TextView
                     android:layout_width="162dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgreinvoice"
                     android:layout_marginTop="0dp"
-                    android:text="@string/recent_invoice"
+                    android:text="Recent Proforma"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -232,7 +203,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:text="@string/invoice_history"
+                    android:text="Proforma History"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -275,7 +246,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:text="@string/deleted_invoice"
+                    android:text="Deleted Proforma"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
